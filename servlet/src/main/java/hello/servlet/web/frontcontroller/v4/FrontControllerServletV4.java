@@ -52,10 +52,6 @@ public class FrontControllerServletV4 extends HttpServlet {
         // render는
     }
 
-    private MyView viewResolver(String viewName) {
-        return new MyView("/WEB-INF/views/" + viewName + ".jsp");
-    }
-
     // HTTP 요청 파라미터들을 Map<String, String> 형태로 추출해주는 역할을 합니다.
     // 말 그대로 폼에서 넘어온 모든 값들을 하나의 Map 에 담아주는 유틸성 메서드
     private Map<String, String> createParamMap(HttpServletRequest request) {
@@ -64,4 +60,14 @@ public class FrontControllerServletV4 extends HttpServlet {
                 forEachRemaining(paramName -> paramMap.put(paramName, request.getParameter(paramName)));
         return paramMap;
     }
+
+
+
+    private MyView viewResolver(String viewName) {
+        return new MyView("/WEB-INF/views/" + viewName + ".jsp");
+    }
+
+
+
+
 }
